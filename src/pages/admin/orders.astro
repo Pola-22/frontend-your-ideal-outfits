@@ -1,0 +1,8 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import OrderManager from '../../components/admin/OrderManager.tsx';
+---
+
+<AdminLayout title="Gestionar Órdenes">
+    <OrderManager client:load />
+</AdminLayout> 

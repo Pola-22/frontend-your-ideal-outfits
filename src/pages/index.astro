@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+---
+
+<Layout title='Your Ideal Outfit'>
+	<div class="flex flex-col items-center justify-center min-h-[calc(100vh-10rem)]">
+		<h1 class="text-4xl font-bold mb-8 text-center">Bienvenido a Your Ideal Outfit</h1>
+		<div class="flex space-x-4">
+			<a href="/new-order" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+				Crear Nueva Orden
+			</a>
+			<a href="/login" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+				Iniciar Sesión (Admin)
+			</a>
+		</div>
+	</div>
+</Layout>

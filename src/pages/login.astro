@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LoginForm from '../components/LoginForm.tsx';
+
+const sessionCookieName = 'token';
+const token = Astro.cookies.get(sessionCookieName);
+
+if (token) {
+    if (!Astro.url.pathname.startsWith('/admin')) {
+        return Astro.redirect('/admin');
+    }
+}
+---
+
+<BaseLayout title="Iniciar Sesión - Admin">
+    <div>
+        <a href="/" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Regresar
+        </a>
+        <LoginForm client:load />
+    </div>
+</BaseLayout>

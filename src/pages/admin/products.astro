@@ -1,0 +1,12 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import ProductManager from '../../components/admin/ProductManager.tsx';
+---
+
+<AdminLayout title="Gestionar Productos">
+	<div class="container mx-auto px-4 sm:px-8">
+        <div class="py-8">
+            <ProductManager client:load />
+        </div>
+    </div>
+</AdminLayout> 

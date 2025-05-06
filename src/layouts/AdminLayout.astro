@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+import Logout from '../components/admin/Logout.tsx';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Panel de Administración" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Admin</title>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+    <div class="flex h-screen">
+        <aside class="w-64 bg-gray-800 text-white flex flex-col">
+            <div class="p-4 text-xl font-semibold border-b border-gray-700">Panel Admin</div>
+            <nav class="mt-4 flex-1">
+                <ul>
+                    <li><a href="/admin" class="block px-4 py-2 hover:bg-gray-700 rounded transition duration-200">Dashboard</a></li>
+                    <li><a href="/admin/products" class="block px-4 py-2 hover:bg-gray-700 rounded transition duration-200">Productos</a></li>
+                    <li><a href="/admin/orders" class="block px-4 py-2 hover:bg-gray-700 rounded transition duration-200">Órdenes</a></li>
+                </ul>
+            </nav>
+            
+            <Logout client:load />
+
+        </aside>
+
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <header class="bg-white dark:bg-gray-800 shadow p-4">
+                <h1 class="text-xl font-semibold text-gray-800 dark:text-white">{title}</h1>
+            </header>
+
+            <div class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 dark:bg-gray-900 p-6">
+                <slot />
+            </div>
+        </main>
+    </div>
+</body>
+</html> 
